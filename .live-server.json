@@ -1,0 +1,7 @@
+{
+    "port": 5500,
+    "host": "0.0.0.0",
+    "open": false,
+    "wait": 1000,
+    "loglevel": 2
+}

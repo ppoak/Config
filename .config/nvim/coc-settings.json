@@ -1,0 +1,119 @@
+/* ===========================
+ 
+      へ　　　　　／|
+ 　　/＼7　　　 ∠＿/
+ 　 /　│　　 ／　／
+ 　│　Z ＿,＜　／　　 /`ヽ
+ 　│　　　　　ヽ　　 /　　〉
+ 　 Y　　　　　`　 /　　/
+ 　ｲ●　､　●　　⊂⊃〈　　/
+ 　()　 へ　　　　|　＼〈
+ 　　>ｰ ､_　 ィ　 │ ／／
+ 　 / へ　　 /　ﾉ＜| ＼＼
+ 　 ヽ_ﾉ　　(_／　 │／／
+ 　　7　　　　　　　|／
+ 　　＞―r￣￣`ｰ―＿
+ 
+ 	                ppoak
+ 
+/ ======================== */
+{
+    "coc.preferences.extensionUpdateCheck": "daily",
+    "suggest.noselect": true,
+    "suggest.enablePreselect": false,
+    "suggest.completionItemKindLabels": {
+        "class": "🆑",
+        "color": "🚥",
+        "constant": "🚫",
+        "default": "🔅",
+        "enum": "🔢",
+        "enumMember": "7️⃣",
+        "event": "🚸",
+        "field": "🚱",
+        "file": "📄",
+        "folder": "📂",
+        "function": "🔨",
+        "interface": "🕳",
+        "keyword": "💡",
+        "method": "🔧",
+        "module": "🧰",
+        "operator": "🎛",
+        "property": "💸",
+        "reference": "📒",
+        "snippet": "📝",
+        "struct": "🏗",
+        "text": "📖",
+        "typeParameter": "💻",
+        "unit": "🕋",
+        "value": "🛎",
+        "variable": "💰"
+    },
+    "coc.preferences.formatOnSaveFiletypes": [
+        "json",
+        "python",
+        "javascript",
+        "html",
+        "css"
+    ],
+    "snippets.ultisnips.directories": [
+        "UltiSnips"
+    ],
+    //coc-git settings
+    "git.command": "git",
+    "git.remoteName": "origin",
+    "git.issueFormat": "#%i",
+    "git.virtualTextPrefix": "     ",
+    "git.addGBlameToVirtualText": false,
+    "git.addGBlameToBufferVar": false,
+    "git.branchCharacter": "",
+    "git.changedDecorator": "*",
+    "git.conflictedDecorator": "x",
+    "git.stagedDecorator": "●",
+    "git.enableGutters": true,
+    "git.realtimeGutters": true,
+    "git.signOffset": 99,
+    "git.changedSign.text": "~",
+    "git.addedSign.hlGroup": "DiffAdd",
+    "git.changedSign.hlGroup": "DiffChange",
+    "git.addedSign.text": "+",
+    "git.removedSign.text": "_",
+    "git.removedSign.hlGroup": "DiffDelete",
+    "git.topRemovedSign.text": "‾",
+    "git.topRemovedSign.hlGroup": "DiffDelete",
+    "git.changeRemovedSign.text": "≃",
+    "git.changeRemovedSign.hlGroup": "DiffChange",
+    "git.semanticCommit.filetypes": [
+        "gitcommit",
+        "gina-commit"
+    ],
+    "git.semanticCommit.scope": true,
+    "git.splitWindowCommand": "above sp",
+    "git.showCommitInFloating": false,
+    "git.gitlab.hosts": [
+        "gitlab.com"
+    ],
+    "languageserver": {
+        "ccls": {
+            "command": "ccls",
+            "filetypes": [
+                "c",
+                "cc",
+                "cpp",
+                "c++",
+                "objc",
+                "objcpp"
+            ],
+            "rootPatterns": [
+                ".ccls",
+                "compile_commands.json",
+                ".git/",
+                ".hg/"
+            ],
+            "initializationOptions": {
+                "cache": {
+                    "directory": "/tmp/ccls"
+                }
+            }
+        }
+    }
+}

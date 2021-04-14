@@ -1,0 +1,52 @@
+#!/bin/bash
+
+# check privilige
+if [ $UID != 0 ]
+then
+    echo "Please don't run as root unless you are root!"
+    exit 0
+fi
+
+cd $HOME
+
+# download software
+echo "downloading software ..."
+sudo sudo apt install neovim
+sudo apt install tmux
+sudo apt install g++ gdb
+sudo apt install ccls
+curl -fsSL https://npm.taobao.org/mirrors/node/v14.16.0/node-v14.16.0-linux-x64.tar.xz -o node.tar.xz
+curl -fsSL https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-py39_4.9.2-Linux-x86_64.sh -o miniconda3.sh
+curl -fsSL https://getfrp.sh/d/frpc_linux_amd64 -o frpc
+git clone https://gitee.com/oakery/config
+
+# install them
+echo "installing them ..."
+sudo tar -Jxvf node.tar.xz -C /opt/
+sudo mv /opt/node-v14.16.0-linux-x64 /opt/node
+sudo chmod +x Miniconda3-py39_4.9.2-Linux-x86_64.sh
+sudo mkdir /opt/frpc
+sudo mv frpc /opt/frpc/
+if [ -d .config ]
+then
+    mkdir .config
+fi
+cp -r config/.config/nvim .config/
+cp config/plug.vim .local/share/nvim/site/autoload/plug.vim
+cp config/.ctags config/.live-server.json config/.tmux.conf ./
+
+# init install
+echo 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC9346qKjC38V7sH6uvxrED+ECqH+dWdgiCyS1+D4rpnjsFdHhm6r+zDQAAk2XjE0lMIkD3XhFGWEkv/8IDMelMiMr34KyLLiDt+0uLeKyP+JFHvR/9X8jICDUQ1FPrBA2sers+6Sa/JZXwrFyhVW0t49N2y+jqmucdue/2OQSZFrB4kF/xDxgr+ed/oGSviQd2PjUZFgzJwNafcGHuzr/+1PKj4cEVkWTUlYQHAZbjrBiyrncKs1SxSG1heiODinX1taAIt9qNyxKBbREk7/zUdA+WIIlJNmZPg0lF9HxNK25a+5K/rhFIg/rt/3u/HtmuVFHj5SVhFByVcdY14ID/scpX3OdDz/2FzaGDTdP0Nu6SA90xRyyW7LoAyZ4mNTJWy+x+3j9pb4z7QkmBhcOCajuuN+Lm6N4g6+ENnYZp+xsDBA7Yo1Czg7xUjnHGpMfvB2xiFsZFH5sPXlv9zbtZYsI6EXteX6NeCkD/cuytJ8sckRDQtbnRBHw3x3rWksE= oak@OakeryPen' >$HOME/.ssh/authorized_keys
+sudo echo \
+'#!/bin/bash
+service ssh start
+nohup /opt/frpc/frpc -f *:* >/dev/null 2>/dev/null &
+while true
+do
+    sleep 600
+done
+' >/etc/init.wsl
+sudo echo \
+'Set ws = CreateObject("Wscript.Shell")
+ws.run "wsl -d kali-linux -u root /etc/init.wsl", vbhide
+' >/mnt/d/startservice.vbs
