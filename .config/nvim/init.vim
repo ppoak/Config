@@ -47,6 +47,7 @@ set hlsearch
 set incsearch
 set infercase
 set cursorline
+highlight cursorline cterm=NONE ctermbg=7 ctermfg=NONE
 " set auto fold for vim type file
 autocmd FileType vim :set foldmethod=marker
 " set autosave while using <esc> or <c-[> for exiting insert mode works fine, mind that <c-c> was excluded for saving
@@ -116,9 +117,6 @@ Plug 'Raimondi/delimitMate'
 Plug 'jpalardy/vim-slime'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & npm install' }
 Plug 'itchyny/lightline.vim'
-" 此插件需要设备上有ctags软件
-" 可以通过sudo apt install ctags实现
-Plug 'majutsushi/tagbar'
 Plug 'easymotion/vim-easymotion'
 Plug 'Yggdroot/indentLine'
 
@@ -326,21 +324,6 @@ augroup MarkdownSettings
     autocmd Filetype markdown inoremap <buffer> ,l <cr> --------<Enter>
 augroup END
 " end of settings for markdown shortcuts}}}
-
-
-" settings tagbar support for markdown{{{
-let g:tagbar_type_markdown = {
-\ 'ctagstype' : 'markdown',
-\ 'kinds' : [
-    \ 'a:Heading1',
-    \ 'b:Heading2',
-    \ 'c:Heading3',
-    \ 'd:Heading4',
-    \ 'e:Heading5',
-    \ 'f:Heading6'
-\ ]
-\ }
-" settings tagbar support for markdown}}}
 
 
 " setting for lightline{{{
